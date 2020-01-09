@@ -40,7 +40,8 @@ pipeline {
                 echo '=== Pushing Petclinic Docker Image ==='
                 script {
                     docker.withRegistry('https://645385727312.dkr.ecr.us-east-1.amazonaws.com', 'ecrCredentials') {
-                        docker.image("645385727312.dkr.ecr.us-east-1.amazonaws.com/petclinic-spinnaker-jenkins").push()
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
                     }
                 }
             }
