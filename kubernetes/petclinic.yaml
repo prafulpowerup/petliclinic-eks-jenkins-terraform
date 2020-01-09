@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: harshpuc/petclinic-spinnaker-jenkins
+        image: 645385727312.dkr.ecr.us-east-1.amazonaws.com/petclinic-spinnaker-jenkins
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
