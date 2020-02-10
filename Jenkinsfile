@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo '=== Building Petclinic Docker Image ==='
                 script {
-                    app = docker.build("645385727312.dkr.ecr.us-east-1.amazonaws.com/petclinic-spinnaker-jenkins")
+                    app = docker.build("318478960641.dkr.ecr.us-east-1.amazonaws.com/eksdemo-java")
                 }
             }
         }
