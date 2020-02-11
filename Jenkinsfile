@@ -46,7 +46,7 @@ pipeline {
                 sh "docker push 318478960641.dkr.ecr.us-east-1.amazonaws.com/eksdemo-java:${IMAGETAG}"
             
                 }
-            }
+            
         }
         stage('Remove local images') {
             steps {
