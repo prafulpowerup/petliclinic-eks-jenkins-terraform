@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo '=== Pushing Petclinic Docker Image ==='
                 script {
-                    docker.withRegistry('https://645385727312.dkr.ecr.us-east-1.amazonaws.com', 'ecrCredentials') {
+                    docker.withRegistry('https://318478960641.dkr.ecr.us-east-1.amazonaws.com', 'ecrCredentials') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
@@ -49,7 +49,7 @@ pipeline {
         stage('Remove local images') {
             steps {
                 echo '=== Delete the local docker images ==='
-                sh("docker rmi -f 645385727312.dkr.ecr.us-east-1.amazonaws.com/petclinic-spinnaker-jenkins:latest || :")
+                sh("docker rmi -f 318478960641.dkr.ecr.us-east-1.amazonaws.com/eksdemo-java:latest || :")
             }
         }
     }
