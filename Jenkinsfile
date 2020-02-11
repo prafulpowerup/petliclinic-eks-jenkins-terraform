@@ -38,11 +38,13 @@ pipeline {
             }
             steps {
                 echo '=== Pushing Petclinic Docker Image ==='
-                script {
-                    docker.withRegistry('https://318478960641.dkr.ecr.us-east-1.amazonaws.com', 'ecrCredentials') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
-                    }
+                sh '$(aws ecr get-login --region us-east-1 --no-include-email)'
+     
+                IMAGETAG="${env.BUILD_NUMBER}"
+                echo "${IMAGETAG}"
+                sh "docker build -t 318478960641.dkr.ecr.us-east-1.amazonaws.com/eksdemo-java:${IMAGETAG} ."
+                sh "docker push 318478960641.dkr.ecr.us-east-1.amazonaws.com/eksdemo-java:${IMAGETAG}"
+            
                 }
             }
         }
